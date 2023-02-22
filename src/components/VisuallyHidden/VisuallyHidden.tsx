@@ -1,3 +1,4 @@
+//accessibility component
 import React from 'react'
 import { SVisuallyHidden } from './styled'
 
