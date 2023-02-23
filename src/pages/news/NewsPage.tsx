@@ -4,7 +4,7 @@ import Main from '../../components/Main/Main'
 import Footer from '../../components/Footer/Footer'
 import { useTranslation } from 'react-i18next'
 
-const News: FC = () => {
+const NewsPage: FC = () => {
   const { t } = useTranslation(['home'])
 
   return (
@@ -19,4 +19,4 @@ const News: FC = () => {
   )
 }
 
-export default News
+export default NewsPage

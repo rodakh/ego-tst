@@ -1,17 +1,17 @@
 import React from 'react'
 import Header from '../../components/Header/Header'
-import Footer from '../../components/Footer/Footer'
 import Main from '../../components/Main/Main'
+import Footer from '../../components/Footer/Footer'
 import { useTranslation } from 'react-i18next'
 
-const Home = () => {
+const ProfilePage = () => {
   const { t } = useTranslation(['home'])
 
   return (
     <>
       <Header />
       <Main>
-        <h1>Home</h1>
+        <h1>Profile</h1>
         <p>{t('test', { ns: ['home'] })}</p>
       </Main>
       <Footer />
@@ -19,4 +19,4 @@ const Home = () => {
   )
 }
 
-export default Home
+export default ProfilePage

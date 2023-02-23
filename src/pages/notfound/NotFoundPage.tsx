@@ -2,7 +2,7 @@ import React, { FC } from 'react'
 import Main from '../../components/Main/Main'
 import { Link } from 'react-router-dom'
 
-const NotFound: FC = () => {
+const NotFoundPage: FC = () => {
   return (
     <>
       <Main>
@@ -12,4 +12,4 @@ const NotFound: FC = () => {
   )
 }
 
-export default NotFound
+export default NotFoundPage
