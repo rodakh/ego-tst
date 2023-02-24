@@ -1,7 +1,15 @@
 import React, { FC } from 'react'
-import Main from '../../components/Main/Main'
+import { LoginLayout } from './styled'
+import { Container } from '@mui/material'
+import AuthForm from '../../components/AuthForm/AuthForm'
 const LoginPage: FC = () => {
-  return <Main>test</Main>
+  return (
+    <LoginLayout>
+      <Container>
+        <AuthForm />
+      </Container>
+    </LoginLayout>
+  )
 }
 
 export default LoginPage

@@ -8,6 +8,7 @@ const GlobalStyles = createGlobalStyle`
     }
     html, body {
       font-size: 100%;
+      min-height: 100vh;
     },
     ul {
       list-style: none;
