@@ -4,12 +4,16 @@ import { Button, FormHelperText, TextField, Tooltip, Typography } from '@mui/mat
 import { SubmitHandler, useForm, Controller } from 'react-hook-form'
 import { useNavigate } from 'react-router-dom'
 import { getErrorLoginMessage, getErrorPasswordMessage } from '../../utils/validator'
+import { useDispatch } from 'react-redux'
+import { login } from '../../features/userSlice'
+import { MOCKED_USER, MOCKED_USER_CREDS } from '../../contants/user'
 
 type AuthFormTypes = {
   login: string
   password: string
 }
 const AuthForm: FC = () => {
+  const dispatch = useDispatch()
   const [isValidCreds, setIsValidCreds] = React.useState<boolean>(true)
   const navigate = useNavigate()
   const {
@@ -18,8 +22,9 @@ const AuthForm: FC = () => {
     formState: { errors },
   } = useForm<AuthFormTypes>()
   const handleLogin: SubmitHandler<AuthFormTypes> = (data) => {
-    if (data.login === 'admin' && data.password === '12345') {
+    if (data.login === MOCKED_USER_CREDS.login && data.password === MOCKED_USER_CREDS.password) {
       setIsValidCreds(true)
+      dispatch(login(MOCKED_USER))
       navigate('/')
       return
     }

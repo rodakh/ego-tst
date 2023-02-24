@@ -1,7 +1,7 @@
-import avatar from 'assets/images/avatar.png'
+import avatar from '../assets/images/avatar.png'
 
 export const MOCKED_USER = {
-  id: crypto.randomUUID(),
+  id: '1',
   name: 'John Doe',
   email: 'john.doe@email.com',
   avatar: avatar,

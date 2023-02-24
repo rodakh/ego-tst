@@ -1,17 +1,17 @@
 import { BrowserRouter } from 'react-router-dom'
 import Router from './components/Router/Router'
-import { ThemeProvider } from '@mui/material'
-import { theme } from './contants/theme'
 import GlobalStyles from './GlobalStyles'
+import { Provider } from 'react-redux'
+import store from './store/store'
 
 const App = () => {
   return (
-    <ThemeProvider theme={theme}>
+    <Provider store={store}>
       <GlobalStyles />
       <BrowserRouter>
         <Router />
       </BrowserRouter>
-    </ThemeProvider>
+    </Provider>
   )
 }
 

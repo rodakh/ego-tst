@@ -1,22 +1,28 @@
-import React, { FC, useState } from 'react'
+import React, { FC } from 'react'
 import { NavbarStyled } from './styled'
 import { NavLink } from 'react-router-dom'
 import { Tooltip } from '@mui/material'
+import { useSelector } from 'react-redux'
+import { UserState } from '../../interfaces/user.interface'
 
-type NavbarProps = {
-  navItems: string[]
-}
-const Navbar: FC<NavbarProps> = () => {
-  const [linkDisabled, setLinkDisabled] = useState(true)
+const Navbar: FC = () => {
+  const user = useSelector((state: { user: UserState }) => state.user.user)
+  const isUser = !!user
   function handleClick(e: React.MouseEvent<HTMLAnchorElement>) {
-    if (linkDisabled) e.preventDefault()
+    if (!isUser) e.preventDefault()
   }
 
   return (
     <NavbarStyled>
       <NavLink to={`/news`}>NEWS</NavLink>
-      <Tooltip title={'Need to login'} arrow>
-        <NavLink onClick={handleClick} to={`/profile/1`}>
+      <Tooltip
+        title={'Need to login'}
+        arrow
+        disableHoverListener={isUser}
+        disableInteractive={isUser}
+        disableFocusListener={isUser}
+      >
+        <NavLink onClick={handleClick} to={`/profile/${user?.id}`}>
           PROFILE
         </NavLink>
       </Tooltip>
