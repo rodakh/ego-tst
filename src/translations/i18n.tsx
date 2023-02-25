@@ -1,15 +1,19 @@
 import i18next from 'i18next'
 import { initReactI18next } from 'react-i18next'
 
-import translationEN from './en/home.json'
-import translationUA from './ua/home.json'
+import translationHomeEN from './en/home.json'
+import translationHomeUA from './ua/home.json'
+import translationCommonEN from './en/common.json'
+import translationCommonUA from './ua/common.json'
 
 const resources = {
   en: {
-    home: translationEN,
+    home: translationHomeEN,
+    common: translationCommonEN,
   },
   ua: {
-    home: translationUA,
+    home: translationHomeUA,
+    common: translationCommonUA,
   },
 }
 

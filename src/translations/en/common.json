@@ -1,0 +1,9 @@
+{
+  "navbar": {
+    "news": "News",
+    "profile": "Profile",
+    "login": "Login",
+    "logout": "Logout"
+  },
+  "footer": "© 2023 - All rights reserved."
+}

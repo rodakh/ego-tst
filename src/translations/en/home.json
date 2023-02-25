@@ -1,4 +1,7 @@
 {
-  "test": "some test text ahahaha",
-  "test2": "footer text"
+  "title": "The most innovated news website",
+  "description1": "Fast.",
+  "description2": "Reliable.",
+  "description3": "Accurate.",
+  "link": "go to news"
 }

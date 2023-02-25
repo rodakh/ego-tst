@@ -18,10 +18,23 @@ const Lang: FC<LangProps> = ({ existedLangs = ['en'] }) => {
   return (
     <LangWrapper>
       <LangLabel htmlFor='langSelector'>
-        <LanguageIcon />
+        <LanguageIcon
+          sx={{
+            color: '#fff',
+          }}
+        />
         <VisuallyHidden>Language selector</VisuallyHidden>
       </LangLabel>
-      <NativeSelect id='langSelector' onChange={languageChange}>
+      <NativeSelect
+        id='langSelector'
+        sx={{
+          color: '#fff',
+          '&:after': { borderBottomColor: '#fff' },
+          '&:before': { borderBottomColor: '#fff' },
+          '& > svg': { fill: '#fff' },
+        }}
+        onChange={languageChange}
+      >
         {existedLangs.map((lang) => {
           return (
             <option key={lang} value={lang}>
