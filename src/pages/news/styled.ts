@@ -1,7 +1,7 @@
 import styled from 'styled-components'
-import img from '../../assets/images/home-bg.jpg'
+import img from '../../assets/images/news-bg.jpg'
 
-export const HomeLayout = styled.div`
+export const NewsLayout = styled.div`
   background: url(${img}) no-repeat center center fixed;
   background-size: cover;
   min-height: 100vh;

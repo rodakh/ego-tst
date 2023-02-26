@@ -4,8 +4,11 @@ import { HeaderStyled, LogoLetterStyled, LogoStyled } from './styled'
 import Navbar from '../Navbar/Navbar'
 import { Link } from 'react-router-dom'
 import CommonTrail from '../Animations/CommonTrail'
+import { useTranslation } from 'react-i18next'
 
 const Header: React.FC = () => {
+  const { i18n } = useTranslation()
+
   return (
     <CommonTrail
       config={{
@@ -15,6 +18,7 @@ const Header: React.FC = () => {
         y: 0,
         from: { opacity: 0, y: -40, height: 0 },
       }}
+      key={i18n.language}
     >
       <HeaderStyled>
         <Link to={'/'} aria-label={'logo'} style={{ textDecoration: 'none' }}>

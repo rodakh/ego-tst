@@ -5,7 +5,7 @@ import { Typography } from '@mui/material'
 import CommonTrail from '../Animations/CommonTrail'
 
 const Footer: React.FC = () => {
-  const { t } = useTranslation(['common'])
+  const { t, i18n } = useTranslation(['common'])
 
   return (
     <CommonTrail
@@ -16,6 +16,7 @@ const Footer: React.FC = () => {
         y: 0,
         from: { opacity: 0, y: 40, height: 0 },
       }}
+      key={i18n.language}
     >
       <FooterStyled>
         <Typography variant={'body1'} color={'#fff'} fontSize={'1rem'}>

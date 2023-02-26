@@ -10,7 +10,7 @@ import CommonTrail from '../../components/Animations/CommonTrail'
 import { HomeLayout } from './styled'
 
 const HomePage = () => {
-  const { t } = useTranslation(['home'])
+  const { t, i18n } = useTranslation(['home'])
 
   return (
     <HomeLayout>
@@ -24,6 +24,7 @@ const HomePage = () => {
             x: 0,
             from: { opacity: 0, x: 20, height: 0 },
           }}
+          key={i18n.language}
         >
           <Typography variant={'h1'} fontSize={'3rem'} color={'#fff'} fontWeight={700}>
             {t('title', { ns: ['home'] })}

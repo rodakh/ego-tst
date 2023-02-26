@@ -1,6 +1,6 @@
 import React, { FC } from 'react'
 import { LogoutStyled, NavbarStyled } from './styled'
-import { Link, NavLink } from 'react-router-dom'
+import { Link, NavLink, useNavigate } from 'react-router-dom'
 import { Tooltip } from '@mui/material'
 import { useDispatch, useSelector } from 'react-redux'
 import { UserState } from '../../interfaces/user.interface'
@@ -9,6 +9,7 @@ import { useTranslation } from 'react-i18next'
 
 const Navbar: FC = () => {
   const user = useSelector((state: { user: UserState }) => state.user.user)
+  const navigate = useNavigate()
   const { t } = useTranslation(['common'])
   const dispatch = useDispatch()
   const isUser = !!user
@@ -18,6 +19,7 @@ const Navbar: FC = () => {
 
   function handleLogout() {
     dispatch(logout())
+    navigate('/')
   }
 
   return (
