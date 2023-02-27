@@ -3,7 +3,7 @@ import { NewsItem } from '../interfaces/news.interface'
 import { API_URL } from '../contants/api'
 
 export const newsApi = createApi({
-  reducerPath: 'news',
+  reducerPath: 'newsApi',
   baseQuery: fetchBaseQuery({ baseUrl: API_URL }),
   endpoints: (builder) => ({
     getNews: builder.query<NewsItem[], number>({

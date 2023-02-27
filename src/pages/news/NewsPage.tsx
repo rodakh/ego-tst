@@ -1,42 +1,49 @@
-import React, { FC, useEffect, useState } from 'react'
+import React, { FC, useEffect } from 'react'
 import Header from '../../components/Header/Header'
 import Main from '../../components/Main/Main'
 import Footer from '../../components/Footer/Footer'
 import { NewsLayout } from './styled'
 import { useDeleteNewsMutation, useGetNewsQuery } from '../../features/newsApi'
+import { areArraysEqual } from '../../utils/arrayHelpers'
+import { useDispatch, useSelector } from 'react-redux'
+import { addNews, cacheNews, changeLimit, removeStoredNews } from '../../features/newsSlice'
 import { NewsItem } from '../../interfaces/news.interface'
-import { areArraysEqual } from '../../utils/areEqual'
 
 const NewsPage: FC = () => {
-  const [news, setNews] = useState<NewsItem[]>([])
-  const [limit, setLimit] = useState<number>(10)
-  const { data, isLoading, isError } = useGetNewsQuery(limit)
+  const news = useSelector((state: any) => state.news)
+  const dispatch = useDispatch()
+  const { data: newsData, isLoading, isError } = useGetNewsQuery(news.limit)
   const [deleteNews, { isLoading: isDeleting }] = useDeleteNewsMutation()
 
   const handleDelete = async (id: number): Promise<void> => {
     try {
       await deleteNews(id).unwrap()
-      setNews((prevNews) => prevNews?.filter((item) => item.id !== id))
+      dispatch(removeStoredNews(id))
     } catch (error) {
       console.error('Error deleting news item:', error)
     }
   }
 
   useEffect(() => {
-    const areEqual = data && areArraysEqual(data, news)
+    const areEqual = newsData && areArraysEqual(newsData, news.news)
 
-    if (data && !news.length) {
-      setNews(data)
+    if (newsData && !areEqual && news.limit === 10) {
+      dispatch(addNews(newsData))
+      dispatch(cacheNews(newsData))
     }
 
-    if (data && !areEqual && limit > 10) {
-      const dataCopy = [...data]
-      setNews((prevNews) => [...prevNews, ...dataCopy.splice(0, limit - 10)])
+    if (newsData && !areEqual && news.limit > 10) {
+      if (areArraysEqual(news.cachedNews, newsData)) return
+
+      const formattedCopy = [...newsData].slice(news.limit - 10)
+      const updatedNews = [...news.news, ...formattedCopy]
+      dispatch(cacheNews(newsData))
+      dispatch(addNews(updatedNews))
     }
-  }, [data])
+  }, [newsData])
 
   const handleLoadMore = () => {
-    setLimit((prevLimit) => prevLimit + 10)
+    dispatch(changeLimit(news.limit + 10))
   }
 
   return (
@@ -46,10 +53,10 @@ const NewsPage: FC = () => {
         <h1>News Page</h1>
         {isLoading && <div>Loading...</div>}
         {isError && <div>Error fetching news</div>}
-        {news && (
+        {news.news && (
           <>
             <ul>
-              {news.map((item) => (
+              {news.news.map((item: NewsItem) => (
                 <li key={item.id}>
                   <h2>{item.title}</h2>
                   <p>{item.body}</p>
