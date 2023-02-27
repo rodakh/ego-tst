@@ -3,26 +3,19 @@ import Header from '../../components/Header/Header'
 import Main from '../../components/Main/Main'
 import Footer from '../../components/Footer/Footer'
 import { NewsLayout } from './styled'
-import { useDeleteNewsMutation, useGetNewsQuery } from '../../features/newsApi'
+import { useGetNewsQuery } from '../../features/newsApi'
 import { areArraysEqual } from '../../utils/arrayHelpers'
 import { useDispatch, useSelector } from 'react-redux'
-import { addNews, cacheNews, changeLimit, removeStoredNews } from '../../features/newsSlice'
-import { NewsItem } from '../../interfaces/news.interface'
+import { addNews, cacheNews, changeLimit } from '../../features/newsSlice'
+import { Box, Button, Typography } from '@mui/material'
+import NewsBox from '../../components/NewsBox/NewsBox'
+import { useTranslation } from 'react-i18next'
 
 const NewsPage: FC = () => {
+  const { t, i18n } = useTranslation(['news'])
   const news = useSelector((state: any) => state.news)
   const dispatch = useDispatch()
   const { data: newsData, isLoading, isError } = useGetNewsQuery(news.limit)
-  const [deleteNews, { isLoading: isDeleting }] = useDeleteNewsMutation()
-
-  const handleDelete = async (id: number): Promise<void> => {
-    try {
-      await deleteNews(id).unwrap()
-      dispatch(removeStoredNews(id))
-    } catch (error) {
-      console.error('Error deleting news item:', error)
-    }
-  }
 
   useEffect(() => {
     const areEqual = newsData && areArraysEqual(newsData, news.news)
@@ -50,25 +43,55 @@ const NewsPage: FC = () => {
     <NewsLayout>
       <Header />
       <Main>
-        <h1>News Page</h1>
-        {isLoading && <div>Loading...</div>}
-        {isError && <div>Error fetching news</div>}
-        {news.news && (
-          <>
-            <ul>
-              {news.news.map((item: NewsItem) => (
-                <li key={item.id}>
-                  <h2>{item.title}</h2>
-                  <p>{item.body}</p>
-                  <button onClick={() => handleDelete(item.id)} disabled={isDeleting}>
-                    {isDeleting ? 'Deleting...' : 'Delete'}
-                  </button>
-                </li>
-              ))}
-            </ul>
-            <button onClick={handleLoadMore}>Load More</button>
-          </>
+        <Typography
+          variant={'h1'}
+          fontSize={'3rem'}
+          color={'#fff'}
+          fontWeight={700}
+          sx={{
+            marginBottom: '20px',
+            marginTop: '20px',
+            textAlign: 'center',
+          }}
+        >
+          {t('title', { ns: ['news'] })}
+        </Typography>
+
+        {isLoading && (
+          <Typography variant={'body2'} color={'yellow'}>
+            {t('helpers.loading', { ns: ['news'] })}
+          </Typography>
         )}
+
+        {isError && (
+          <Typography variant={'body2'} color={'red'}>
+            {t('helpers.error', { ns: ['news'] })}
+          </Typography>
+        )}
+
+        <NewsBox key={i18n.language} news={news.news} />
+
+        <Box
+          sx={{
+            display: 'flex',
+            justifyContent: 'center',
+            marginTop: '20px',
+          }}
+        >
+          <Button
+            onClick={handleLoadMore}
+            sx={{
+              backgroundColor: '#3b3737',
+              color: '#fff',
+              '&:hover': {
+                backgroundColor: '#fff',
+                color: '#3b3737',
+              },
+            }}
+          >
+            {t('helpers.loadMore', { ns: ['news'] })}
+          </Button>
+        </Box>
       </Main>
       <Footer />
     </NewsLayout>

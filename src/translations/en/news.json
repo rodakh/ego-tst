@@ -1,0 +1,10 @@
+{
+  "title": "News",
+  "helpers": {
+    "loading": "Loading...",
+    "error": "Error loading news",
+    "delete": "Delete",
+    "deleting": "Deleting...",
+    "loadMore": "Load more"
+  }
+}
