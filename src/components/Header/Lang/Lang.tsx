@@ -34,6 +34,7 @@ const Lang: FC<LangProps> = ({ existedLangs = ['en'] }) => {
           '& > svg': { fill: '#fff' },
         }}
         onChange={languageChange}
+        value={i18n.language}
       >
         {existedLangs.map((lang) => {
           return (
