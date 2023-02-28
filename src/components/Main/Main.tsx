@@ -6,7 +6,7 @@ interface MainProps {
   children: React.ReactNode
   style?: React.CSSProperties
 }
-const Main: React.FC<MainProps> = ({ maxWidth = 'xl', children, style }) => {
+const Main: React.FC<MainProps> = ({ maxWidth = 'lg', children, style }) => {
   return (
     <main>
       <Container maxWidth={maxWidth} sx={style}>
