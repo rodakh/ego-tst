@@ -34,7 +34,11 @@ const Navbar: FC = () => {
         disableInteractive={isUser}
         disableFocusListener={isUser}
       >
-        <NavLink onClick={handleClick} className={'nav-link'} to={`/profile/${user?.id}`}>
+        <NavLink
+          onClick={handleClick}
+          className={isUser ? 'nav-link' : 'nav-link nav-link--disabled'}
+          to={`/profile/${user?.id}`}
+        >
           {t('navbar.profile', { ns: ['common'] })}
         </NavLink>
       </Tooltip>
