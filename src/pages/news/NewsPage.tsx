@@ -10,6 +10,7 @@ import { addNews, cacheNews, changeLimit } from '../../features/newsSlice'
 import { Box, Button, Typography } from '@mui/material'
 import NewsBox from '../../components/NewsBox/NewsBox'
 import { useTranslation } from 'react-i18next'
+import Loader from '../../components/Loader/Loader'
 
 const NewsPage: FC = () => {
   const { t, i18n } = useTranslation(['news'])
@@ -58,9 +59,11 @@ const NewsPage: FC = () => {
         </Typography>
 
         {isLoading && (
-          <Typography variant={'body2'} color={'yellow'}>
-            {t('helpers.loading', { ns: ['news'] })}
-          </Typography>
+          <Box
+            sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', width: '100%' }}
+          >
+            <Loader withText={true} />
+          </Box>
         )}
 
         {isError && (

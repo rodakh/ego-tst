@@ -3,6 +3,7 @@ import { Route, Routes } from 'react-router-dom'
 import PrivateRoute, { PrivateRouteLogin } from './PrivateRoute/PrivateRoute'
 import { useSelector } from 'react-redux'
 import { UserState } from '../../interfaces/user.interface'
+import Loader from '../Loader/Loader'
 
 const Home = React.lazy(() => import('../../pages/home/HomePage'))
 const News = React.lazy(() => import('../../pages/news/NewsPage'))
@@ -14,7 +15,7 @@ const Router: FC = () => {
   const user = useSelector((state: { user: UserState }) => state.user.user)
 
   return (
-    <React.Suspense fallback={<div>Loading...</div>}>
+    <React.Suspense fallback={<Loader withLayout={true} />}>
       <Routes>
         <Route path='/' index element={<Home />} />
         <Route path='/news' element={<News />} />
