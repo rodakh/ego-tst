@@ -9,6 +9,8 @@ import translationNewsEN from './en/news.json'
 import translationNewsUA from './ua/news.json'
 import translationProfileEN from './en/profile.json'
 import translationProfileUA from './ua/profile.json'
+import translationLoginEN from './en/login.json'
+import translationLoginUA from './ua/login.json'
 
 const resources = {
   en: {
@@ -16,12 +18,14 @@ const resources = {
     common: translationCommonEN,
     news: translationNewsEN,
     profile: translationProfileEN,
+    login: translationLoginEN,
   },
   ua: {
     home: translationHomeUA,
     common: translationCommonUA,
     news: translationNewsUA,
     profile: translationProfileUA,
+    login: translationLoginUA,
   },
 }
 

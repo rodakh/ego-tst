@@ -2,13 +2,14 @@ import React, { FC } from 'react'
 import { NativeSelect } from '@mui/material'
 import { useTranslation } from 'react-i18next'
 import LanguageIcon from '@mui/icons-material/Language'
-import VisuallyHidden from '../../VisuallyHidden/VisuallyHidden'
+import VisuallyHidden from '../VisuallyHidden/VisuallyHidden'
 import { LangLabel, LangWrapper } from './styled'
 
 type LangProps = {
   existedLangs: string[]
+  color?: string
 }
-const Lang: FC<LangProps> = ({ existedLangs = ['en'] }) => {
+const Lang: FC<LangProps> = ({ existedLangs = ['en'], color = '#fff' }) => {
   const { t, i18n } = useTranslation(['common'])
   function languageChange(event: React.ChangeEvent<HTMLSelectElement>): void {
     const language = event.target.value
@@ -20,7 +21,7 @@ const Lang: FC<LangProps> = ({ existedLangs = ['en'] }) => {
       <LangLabel htmlFor='langSelector'>
         <LanguageIcon
           sx={{
-            color: '#fff',
+            color: `${color}`,
           }}
         />
         <VisuallyHidden>{t('langSelector', { ns: ['common'] })}</VisuallyHidden>
@@ -28,10 +29,10 @@ const Lang: FC<LangProps> = ({ existedLangs = ['en'] }) => {
       <NativeSelect
         id='langSelector'
         sx={{
-          color: '#fff',
-          '&:after': { borderBottomColor: '#fff' },
-          '&:before': { borderBottomColor: '#fff' },
-          '& > svg': { fill: '#fff' },
+          color: `${color}`,
+          '&:after': { borderBottomColor: `${color}` },
+          '&:before': { borderBottomColor: `${color}` },
+          '& > svg': { fill: `${color}` },
         }}
         onChange={languageChange}
         value={i18n.language}

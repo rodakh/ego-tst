@@ -1,5 +1,5 @@
 import React from 'react'
-import Lang from './Lang/Lang'
+import Lang from '../Lang/Lang'
 import { HeaderStyled, LogoLetterStyled, LogoStyled } from './styled'
 import Navbar from '../Navbar/Navbar'
 import { Link } from 'react-router-dom'

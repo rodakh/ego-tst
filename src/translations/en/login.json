@@ -1,0 +1,25 @@
+{
+  "form": {
+    "title": "Login",
+    "helper": "Login with mock user only (hover to view data)",
+    "back": "Back to home",
+    "inputs": {
+      "login":"Login",
+      "password":"Password"
+    },
+    "errors": {
+      "login": {
+        "required": "Login is required",
+        "minlength": "Login must be at least 5 characters long"
+      },
+      "password": {
+        "required": "Password is required",
+        "minlength": "Password must be at least 5 characters long"
+      },
+      "creds": "User credentials are invalid"
+    },
+    "actions": {
+      "login": "Login"
+    }
+  }
+}
