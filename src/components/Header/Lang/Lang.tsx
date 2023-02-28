@@ -9,7 +9,7 @@ type LangProps = {
   existedLangs: string[]
 }
 const Lang: FC<LangProps> = ({ existedLangs = ['en'] }) => {
-  const { i18n } = useTranslation(['home'])
+  const { t, i18n } = useTranslation(['common'])
   function languageChange(event: React.ChangeEvent<HTMLSelectElement>): void {
     const language = event.target.value
     i18n.changeLanguage(language)
@@ -23,7 +23,7 @@ const Lang: FC<LangProps> = ({ existedLangs = ['en'] }) => {
             color: '#fff',
           }}
         />
-        <VisuallyHidden>Language selector</VisuallyHidden>
+        <VisuallyHidden>{t('langSelector', { ns: ['common'] })}</VisuallyHidden>
       </LangLabel>
       <NativeSelect
         id='langSelector'
