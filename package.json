@@ -1,7 +1,7 @@
 {
   "name": "ego-tst",
   "homepage": "https://rodakh.github.io/ego-tst/",
-  "private": true,
+  "private": false,
   "version": "1.0.0",
   "type": "module",
   "scripts": {
