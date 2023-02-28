@@ -1,5 +1,7 @@
 ## Project setup steps
 
+## results can be seen here: https://singular-fenglisu-267e5c.netlify.app/
+
 ### 1. Clone project from git
 
 ```
