@@ -1,11 +1,14 @@
 {
   "name": "ego-tst",
+  "homepage": "https://rodakh.github.io/ego-tst/",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "preview": "vite preview",
     "lint": "eslint src/**/*.{js,jsx,ts,tsx,json}",
     "lint:fix": "eslint --fix 'src/**/*.{js,jsx,ts,tsx,json}'",
@@ -21,6 +24,7 @@
     "@reduxjs/toolkit": "^1.9.2",
     "@types/react-redux": "^7.1.25",
     "@types/react-router-dom": "^5.3.3",
+    "gh-pages": "^5.0.0",
     "i18next": "^22.4.10",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

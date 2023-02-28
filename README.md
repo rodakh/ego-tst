@@ -1,4 +1,4 @@
-## Project seutop steps
+## Project setup steps
 
 ### 1. Clone project from git
 
