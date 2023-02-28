@@ -1,10 +1,10 @@
-import React from 'react'
+import React, { FC } from 'react'
 import { useTranslation } from 'react-i18next'
 import { FooterStyled } from './styled'
 import { Typography } from '@mui/material'
 import CommonTrail from '../Animations/CommonTrail'
 
-const Footer: React.FC = () => {
+const Footer: FC = () => {
   const { t, i18n } = useTranslation(['common'])
 
   return (

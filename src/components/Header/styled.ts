@@ -6,16 +6,9 @@ export const HeaderStyled = styled('header')({
   justifyContent: 'space-between',
   backgroundColor: 'rgba(0, 0, 0, 0.2);',
   padding: '14px 24px',
-})
 
-export const LogoStyled = styled('span')({
-  fontSize: '1.5rem',
-  fontWeight: 700,
-  color: '#fff',
-})
-
-export const LogoLetterStyled = styled('span')({
-  fontSize: '1.5rem',
-  fontWeight: 700,
-  color: 'red',
+  '@media screen and (max-width: 762px)': {
+    flexDirection: 'column',
+    gap: '10px',
+  },
 })

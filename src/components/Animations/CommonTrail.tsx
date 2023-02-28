@@ -2,7 +2,7 @@ import React, { FC } from 'react'
 import { useTrail, a } from '@react-spring/web'
 import { ICommonTrails } from '../../interfaces/animations.unterface'
 
-type CommonTrailProps = {
+interface CommonTrailProps {
   children: JSX.Element | JSX.Element[]
   config: ICommonTrails
   reAnimate?: boolean

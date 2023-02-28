@@ -1,12 +1,12 @@
-import React from 'react'
+import React, { FC } from 'react'
 import Lang from '../Lang/Lang'
-import { HeaderStyled, LogoLetterStyled, LogoStyled } from './styled'
+import { HeaderStyled } from './styled'
 import Navbar from '../Navbar/Navbar'
-import { Link } from 'react-router-dom'
 import CommonTrail from '../Animations/CommonTrail'
 import { useTranslation } from 'react-i18next'
+import Logo from '../Logo/Logo'
 
-const Header: React.FC = () => {
+const Header: FC = () => {
   const { i18n } = useTranslation()
 
   return (
@@ -21,10 +21,7 @@ const Header: React.FC = () => {
       key={i18n.language}
     >
       <HeaderStyled>
-        <Link to={'/'} aria-label={'logo'} style={{ textDecoration: 'none' }}>
-          <LogoLetterStyled>Ego</LogoLetterStyled>
-          <LogoStyled>News</LogoStyled>
-        </Link>
+        <Logo />
         <Navbar />
         <Lang existedLangs={['en', 'ua']} />
       </HeaderStyled>

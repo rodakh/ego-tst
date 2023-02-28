@@ -7,5 +7,9 @@
   },
   "langSelector": "Language Selector",
   "loading": "Loading...",
-  "footer": "© 2023 - All rights reserved."
+  "footer": "© 2023 - All rights reserved.",
+  "notfound": {
+    "text": "Page not found. Go back to",
+    "link": "Home"
+  }
 }

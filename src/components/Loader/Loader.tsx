@@ -43,4 +43,4 @@ const Loader: FC<LoaderProps> = ({ withLayout = false, withText = false }) => {
   )
 }
 
-export default Loader
+export default React.memo(Loader)

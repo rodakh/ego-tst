@@ -5,7 +5,7 @@ import LanguageIcon from '@mui/icons-material/Language'
 import VisuallyHidden from '../VisuallyHidden/VisuallyHidden'
 import { LangLabel, LangWrapper } from './styled'
 
-type LangProps = {
+interface LangProps {
   existedLangs: string[]
   color?: string
 }
