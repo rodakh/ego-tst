@@ -1,4 +1,4 @@
-import{s as o,r as p,j as t,o as m,u as f,V as h,T as c}from"./index-0590a65e.js";import{H as g,F as j}from"./Footer-5cb7fba9.js";import{M as u}from"./Main-9a32de79.js";import{J as y,a as l}from"./CommonTrail-c3b27c7a.js";import{B as x}from"./Box-ee65d293.js";import"./Container-e19623d7.js";const b="/ego-tst/assets/profile-bg-53384b5c.jpg",v=o.div`
+import{s as o,r as p,j as t,o as m,u as f,V as h,T as c}from"./index-7d733c5a.js";import{H as g,F as j}from"./Footer-c5fc6899.js";import{M as u}from"./Main-7f9bb582.js";import{J as y,a as l}from"./CommonTrail-5a1e063a.js";import{B as x}from"./Box-a382bb98.js";import"./Container-ef64c08b.js";const b="/ego-tst/assets/profile-bg-53384b5c.jpg",v=o.div`
   background: url(${b}) no-repeat center center fixed;
   background-size: cover;
   min-height: 100vh;

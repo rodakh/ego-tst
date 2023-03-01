@@ -1,0 +1,1 @@
+import{R as t,j as s}from"./index-7d733c5a.js";import{C as a}from"./Container-ef64c08b.js";const i=({maxWidth:n="lg",children:o,style:r})=>s.jsx("main",{children:s.jsx(a,{maxWidth:n,sx:r,children:o})}),x=t.memo(i);export{x as M};
