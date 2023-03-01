@@ -1,8 +1,6 @@
 ## Project setup steps
 
-## results can be seen here: 
-netlify: https://singular-fenglisu-267e5c.netlify.app/
-github pages: https://rodakh.github.io/ego-tst/
+## results can be seen here: https://rodakh.github.io/ego-tst/
 
 ### 1. Clone project from git
 
