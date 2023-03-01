@@ -67,9 +67,13 @@ const NewsPage: FC = () => {
         )}
 
         {isError && (
-          <Typography variant={'body2'} color={'red'}>
-            {t('helpers.error', { ns: ['news'] })}
-          </Typography>
+          <Box
+            sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', width: '100%' }}
+          >
+            <Typography variant={'body2'} color={'red'}>
+              {t('helpers.error', { ns: ['news'] })}
+            </Typography>
+          </Box>
         )}
 
         <NewsBox key={i18n.language} news={news.news} />
