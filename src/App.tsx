@@ -1,4 +1,4 @@
-import { HashRouter } from 'react-router-dom'
+import { BrowserRouter } from 'react-router-dom'
 import Router from './components/Router/Router'
 import GlobalStyles from './GlobalStyles'
 import { Provider } from 'react-redux'
@@ -8,9 +8,9 @@ const App = () => {
   return (
     <Provider store={store}>
       <GlobalStyles />
-      <HashRouter>
+      <BrowserRouter>
         <Router />
-      </HashRouter>
+      </BrowserRouter>
     </Provider>
   )
 }

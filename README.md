@@ -1,6 +1,7 @@
 ## Project setup steps
 
-## results can be seen here: https://rodakh.github.io/ego-tst/
+## Results can be seen here: https://singular-fenglisu-267e5c.netlify.app/
+### Switched from gh-pages to netlify because gh-pages uses static html files and it's needed to use HashRouter instead of BrowserRouter and push build(dist) folder or use gh-pages package to push build folder to gh-pages branch.
 
 ### 1. Clone project from git
 
