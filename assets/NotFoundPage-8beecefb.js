@@ -1,4 +1,4 @@
-import{s as n,u as e,j as o,T as r,L as s}from"./index-0520d49c.js";import{M as c}from"./Main-c482be96.js";import"./Container-052183c1.js";const i="/ego-tst/assets/404-bg-f29cc140.jpg",a=n.div`
+import{s as n,u as e,j as o,T as r,L as s}from"./index-0590a65e.js";import{M as c}from"./Main-9a32de79.js";import"./Container-e19623d7.js";const i="/ego-tst/assets/404-bg-f29cc140.jpg",a=n.div`
   background: url(${i}) no-repeat center center fixed;
   background-size: cover;
   min-height: 100vh;
