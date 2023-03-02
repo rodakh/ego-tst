@@ -8,6 +8,7 @@ import ArrowCircleRightOutlinedIcon from '@mui/icons-material/ArrowCircleRightOu
 import { Link } from 'react-router-dom'
 import CommonTrail from '../../components/Animations/CommonTrail'
 import { HomeLayout } from './styled'
+import { ANIMATION_HOMEPAGE_CONFIG } from '../../components/Animations/config'
 
 const HomePage = () => {
   const { t, i18n } = useTranslation(['home'])
@@ -16,16 +17,7 @@ const HomePage = () => {
     <HomeLayout>
       <Header />
       <Main>
-        <CommonTrail
-          config={{
-            config: { mass: 5, tension: 2000, friction: 200 },
-            opacity: 1,
-            delay: 400,
-            x: 0,
-            from: { opacity: 0, x: 20, height: 0 },
-          }}
-          key={i18n.language}
-        >
+        <CommonTrail config={ANIMATION_HOMEPAGE_CONFIG} key={i18n.language}>
           <Typography variant={'h1'} fontSize={'3rem'} color={'#fff'} fontWeight={700}>
             {t('title', { ns: ['home'] })}
           </Typography>

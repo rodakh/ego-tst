@@ -10,6 +10,7 @@ import Lang from '../Lang/Lang'
 import CommonTrail from '../Animations/CommonTrail'
 import { AuthFormTypes } from '../../interfaces/form.interface'
 import { useLogin } from '../../hooks/useLogin'
+import { ANIMATION_LOGINPAGE_CONFIG } from '../Animations/config'
 
 const AuthForm: FC = () => {
   const { t, i18n } = useTranslation(['login'])
@@ -22,16 +23,7 @@ const AuthForm: FC = () => {
 
   return (
     <AuthFormLayout>
-      <CommonTrail
-        config={{
-          config: { mass: 5, tension: 2000, friction: 200 },
-          opacity: 1,
-          delay: 300,
-          x: 0,
-          from: { opacity: 0, x: -100, height: 0 },
-        }}
-        key={i18n.language}
-      >
+      <CommonTrail config={ANIMATION_LOGINPAGE_CONFIG} key={i18n.language}>
         <AuthFormStyled onSubmit={handleSubmit(handleLogin)}>
           <Box
             sx={{

@@ -5,21 +5,13 @@ import Navbar from '../Navbar/Navbar'
 import CommonTrail from '../Animations/CommonTrail'
 import { useTranslation } from 'react-i18next'
 import Logo from '../Logo/Logo'
+import { ANIMATION_HEADER_CONFIG } from '../Animations/config'
 
 const Header: FC = () => {
   const { i18n } = useTranslation()
 
   return (
-    <CommonTrail
-      config={{
-        config: { mass: 5, tension: 2000, friction: 200 },
-        opacity: 1,
-        delay: 250,
-        y: 0,
-        from: { opacity: 0, y: -40, height: 0 },
-      }}
-      key={i18n.language}
-    >
+    <CommonTrail config={ANIMATION_HEADER_CONFIG} key={i18n.language}>
       <HeaderStyled>
         <Logo />
         <Navbar />
